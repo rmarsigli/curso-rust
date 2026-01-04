@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use validator::Validate;
 
 #[derive(Serialize)]
 #[serde(untagged)]
@@ -14,13 +15,24 @@ pub struct Task {
     pub done: bool,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Validate)]
 pub struct CreateTask {
+    #[validate(length(
+        min = 4,
+        max = 100,
+        message = "Título deve ter entre 4 e 100 caracteres",
+    ))]
     pub title: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Validate)]
 pub struct UpdateTask {
+    #[validate(length(
+        min = 4,
+        max = 100,
+        message = "Título deve ter entre 4 e 100 caracteres",
+    ))]
     pub title: String,
+    // Aqui não precisa de validação, bool existe sempre bool
     pub done: bool,
 }
