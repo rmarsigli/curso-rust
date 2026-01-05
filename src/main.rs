@@ -1,10 +1,11 @@
-mod models;
+mod error;
 mod handlers;
+mod models;
 mod routes;
 
 use axum::{Router, routing::get};
-use std::sync::{Arc, Mutex};
 use handlers::tasks::SharedState;
+use std::sync::{Arc, Mutex};
 
 #[tokio::main]
 async fn main() {

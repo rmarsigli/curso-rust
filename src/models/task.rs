@@ -1,13 +1,6 @@
 use serde::{Deserialize, Serialize};
 use validator::Validate;
 
-#[derive(Serialize)]
-#[serde(untagged)]
-pub enum ApiResponse {
-    Success(Task),
-    Error { message: String },
-}
-
 #[derive(Clone, Serialize)]
 pub struct Task {
     pub id: u32,
