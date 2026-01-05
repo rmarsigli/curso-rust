@@ -8,7 +8,7 @@ pub fn length_between(
     max: usize,
     field_name: &str,
 ) -> Result<(), ValidationError> {
-    let len = value.len();
+    let len = value.chars().count();
 
     if len < min || len > max {
         let mut error = ValidationError::new("length_between");
