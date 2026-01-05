@@ -14,9 +14,6 @@ pub enum AppError {
     #[error("Erro de validação: {0}")]
     ValidationError(String),
 
-    #[error("Erro interno do servidor")]
-    InternalError,
-
     #[error("Erro ao travar mutex")]
     MutexError,
 }
@@ -26,7 +23,6 @@ impl IntoResponse for AppError {
         let (status, message) = match self {
             AppError::NotFound => (StatusCode::NOT_FOUND, self.to_string()),
             AppError::ValidationError(msg) => (StatusCode::BAD_REQUEST, msg),
-            AppError::InternalError => (StatusCode::INTERNAL_SERVER_ERROR, self.to_string()),
             AppError::MutexError => (StatusCode::INTERNAL_SERVER_ERROR, self.to_string()),
         };
 
