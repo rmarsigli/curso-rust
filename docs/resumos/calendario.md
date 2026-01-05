@@ -9,3 +9,5 @@ Aqui o que foi aprendido em cada dia, junto com a análise do professor.
 | [Testes e Consolidação](./professor/2026-01-01.md)                    | 2026-01-01 |
 | [Código Comentado Completo](./professor/2026-01-02.md)                | 2026-01-02 |
 | [CRUD Completo](./professor/2026-01-03.md)                            | 2026-01-03 |
+| [Error Handling Profissional](./professor/2026-01-04.md)              | 2026-01-04 |
+
