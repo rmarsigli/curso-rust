@@ -1,3 +1,4 @@
+use crate::validators::text::{validate_text_not_empty, validate_title};
 use serde::{Deserialize, Serialize};
 use validator::Validate;
 
@@ -10,22 +11,19 @@ pub struct Task {
 
 #[derive(Deserialize, Validate)]
 pub struct CreateTask {
-    #[validate(length(
-        min = 4,
-        max = 100,
-        message = "Título deve ter entre 4 e 100 caracteres",
-    ))]
+    #[validate(
+        custom(function = "validate_title"),
+        custom(function = "validate_text_not_empty")
+    )]
     pub title: String,
 }
 
 #[derive(Deserialize, Validate)]
 pub struct UpdateTask {
-    #[validate(length(
-        min = 4,
-        max = 100,
-        message = "Título deve ter entre 4 e 100 caracteres",
-    ))]
+    #[validate(
+        custom(function = "validate_title"),
+        custom(function = "validate_text_not_empty")
+    )]
     pub title: String,
-    // Aqui não precisa de validação, bool existe sempre bool
     pub done: bool,
 }

@@ -2,6 +2,7 @@ mod error;
 mod handlers;
 mod models;
 mod routes;
+mod validators;
 
 use axum::{Router, routing::get};
 use handlers::tasks::SharedState;
